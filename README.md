@@ -16,13 +16,13 @@ To do that projection, we use standard projection process which P,X,Y,Z are know
 
 we can solve above equation and find each point's projection on to the image plane shown by (x,y). So we can set λ into (x,y)'s depth information. Basically, we can create a map whose element is *Map(x,y)=λ*.
 
-But this *Map* become too sparse. According to our test, we can see only 6% of the Map's indexes have value. To get rid of that problem, we calculate not just depth info of *(x,y)* location but also *ngird* number of left and right bottom and up locations depth information too. For instance is *ngrid=4*, it means we used 9x9 neighborhood and we calculate weighted depth information according to the distance of the neighborhood. Basically, we used the distance of the neighborhood as a weight of sum process. Here is the result of the initial depth map without any process, and depth map with 1,2,3,4 and 5 grid size.
+But this *Map* become too sparse. According to our test, we can see only 6% of the Map's indexes have value. To get rid of that problem, we calculated not just depth info of *(x,y)* location but also *ngird* number of left and right bottom and up locations depth information too. For instance, if *ngrid=4*, it means we used 9x9 neighborhood and we calculated weighted depth information according to the distance of the neighborhood. Basically, we used the distance of the neighborhood as a weight of sum process. Here is the result of the initial depth map without any process, and depth map with 1,2,3,4 and 5 grid size.
 
 ![Sample image](Output/depthimages.jpg?raw=true "Title")
 
-As you can see, the quality of depth map increase by grid size. But note that the larger grid size, the more computational time. In our tests, it needs almost 1 second for ngrid=4 with single CPU implementation. We tried to write Matlab code efficient to avoid using loops.
+As you can see, the quality of depth map increases by grid size. But note that the larger grid size, the more computational time. In our tests, it needs almost 1 second for ngrid=4 with single CPU implementation. We tried to write Matlab code efficient to avoid using loops.
 
-To evaluate depth and image matching, you can see both the inverse of the depth map and camera image together by the following image.
+To evaluate depth and image matching by sight, you can see both the inverse of the depth map and camera image together in the following image.
 
 ![Sample image](Output/inversedepth.jpg?raw=true "Title")
 
