@@ -26,7 +26,12 @@ To evaluate depth and image matching, you can see both inverse of depth map and 
 
 ![Sample image](Output/inversedepth.jpg?raw=true "Title")
 
-You can find c++ implementation of another method in reference[2]
+You can find c++ implementation of another method in reference[2].
+
+You can basically lauch main script by following matlab command.
+```
+> main
+```
 
 ## Reference
 [1] Geiger, Andreas, et al. "Vision meets robotics: The KITTI dataset." The International Journal of Robotics Research 32.11 (2013): 1231-1237.
