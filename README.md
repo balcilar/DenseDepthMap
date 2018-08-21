@@ -2,7 +2,9 @@
 
 Lidar sensors can supply us great information about circumferences and those information are very crucial for many automatic robotic application such as self-driving car. Although, Lidar sensor gives us 360 degree of view point cloud and it is quite dense, if we want to match any camera images within those point cloud, the depth map for certain camera become pretty sparse and it is far behind to use that matched depth information for any purpose.
 
-In this project, we are focusing on reading point cloud, camera image and calibration parameters from sample Kitti dataset [1] and create dense depth image for certain camera whose translation and rotations are known.
+In this project, we are focusing on reading point cloud, camera image and calibration parameters from sample Kitti dataset [1] and create dense depth image for certain camera whose translation and rotations are known. Here is a view of the point cloud.
+
+![Sample image](Output/pointcloud.jpg?raw=true "Title")
 
 In dataset, there are camera2 and camera3's rgb images and their projection's in calibration file. We read that calibration and create 3x4 dimensioned projection matrix *P* which transform *[X;Y;Z;1]* vector into pixel location into camera2 frame. Here is the camera image in the following image.
 
@@ -23,6 +25,8 @@ As you can see, the quality of depth map increase by grid size. But note that th
 To evaluate depth and image matching, you can see both inverse of depth map and camera image together by following image.
 
 ![Sample image](Output/inversedepth.jpg?raw=true "Title")
+
+You can find c++ implementation of another method in reference[2]
 
 ## Reference
 [1] Geiger, Andreas, et al. "Vision meets robotics: The KITTI dataset." The International Journal of Robotics Research 32.11 (2013): 1231-1237.
