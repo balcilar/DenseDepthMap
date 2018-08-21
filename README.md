@@ -4,9 +4,19 @@ Lidar sensors can supply us great information about circumferences and those inf
 
 In this project, we are focusing on reading point cloud, camera image and calibration parameters from sample Kitti dataset [1] and create dense depth image for certain camera whose translation and rotations are known.
 
-In dataset, there are camera2 and camera3's rgb images and their projection's in calibration file. We read that calibration and create 3x4 dimensioned projection matrix *P* which transform *[X;Y;Z;1]* vector into pixel location into camera2 frame. To do that, we use standard projection process which λ, x, y parameters are to be estimated.
+In dataset, there are camera2 and camera3's rgb images and their projection's in calibration file. We read that calibration and create 3x4 dimensioned projection matrix *P* which transform *[X;Y;Z;1]* vector into pixel location into camera2 frame. Here is the camera image in the following image.
+
+![Sample image](data/image_2/0000000001.png?raw=true "Title")
+
+To do that projection, we use standard projection process which P,X,Y,Z are known but λ, x, y parameters are to be estimated.
+
 *λ.[x;y;1]=P*[X;Y;Z;1]*
 
+we can solve above equaiton and find each point's projection on to the image plane shown by (x,y). So we can set λ into (x,y)'s depth information. Basically we can create a map whose element is *Map(x,y)=λ*.
+
+But this *Map* become too sparse. According to out test, we can see only 6% of the Map's indexes has value. To get rid of that problem, we calculate not just depth info of *(x,y)* location but also *ngird* number of left and right bottom and up locations depth information too. For instance is *ngrid=4*, it means we used 9x9 neighbourhood and we calculate weighted depth information according to distance of the neighbourhood. Basically we used distance of neightborhood as a weight of sum process. Here is the result of initial depth map without any process, and depth map with 1,2,3,4 and 5 grid size.
+
+![Sample image](Output/depthimages.jpg?raw=true "Title")
 
 ## Reference
 [1] Geiger, Andreas, et al. "Vision meets robotics: The KITTI dataset." The International Journal of Robotics Research 32.11 (2013): 1231-1237.
