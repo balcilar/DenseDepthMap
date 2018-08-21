@@ -20,7 +20,7 @@ But this *Map* become too sparse. According to our test, we can see only 6% of t
 
 ![Sample image](Output/depthimages.jpg?raw=true "Title")
 
-As you can see, the quality of depth map increase by grid size. But note that the larger grid size, the more computational time. In our tests, it needs almost 1 second for ngid=4 with single CPU implementation. We tried to write Matlab code efficient to avoid using loops.
+As you can see, the quality of depth map increase by grid size. But note that the larger grid size, the more computational time. In our tests, it needs almost 1 second for ngrid=4 with single CPU implementation. We tried to write Matlab code efficient to avoid using loops.
 
 To evaluate depth and image matching, you can see both the inverse of the depth map and camera image together by the following image.
 
