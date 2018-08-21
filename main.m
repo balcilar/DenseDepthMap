@@ -2,7 +2,7 @@
 % All rights reserved
 
 clear all
-close all
+%close all
 clc
 
 I=imread('data/image_2/0000000001.png');
@@ -41,11 +41,14 @@ figure;
 plot3(velo(:,1),velo(:,2),velo(:,3),'r.');
 title('Raw point Cloud');
 
-% project to image plane 
-P2(4,4)=1;
+
+% create projection matrix
 R0_rect(4,4)=1;
 Tr_velo_to_cam(4,4)=1;
-px = (P2 * R0_rect * Tr_velo_to_cam * velo')';
+P=P2 * R0_rect * Tr_velo_to_cam;
+
+% project to image plane 
+px = (P * velo')';
 
 px(:,1) = px(:,1)./px(:,3);
 px(:,2) = px(:,2)./px(:,3);
