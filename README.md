@@ -20,6 +20,9 @@ But this *Map* become too sparse. According to out test, we can see only 6% of t
 
 As you can see, the quality of depth map increase by grid size. But note that the larger grid size, the more computational time. In our tests it needs almost 1 second for ngid=4 with single cpu implementataion. We tried to write matlab code efficient to avoid using loops.
 
+To evaluate depth and image matching, you can see both inverse of depth map and camera image together by following image.
+
+![Sample image](Output/inversedepth.jpg?raw=true "Title")
 
 ## Reference
 [1] Geiger, Andreas, et al. "Vision meets robotics: The KITTI dataset." The International Journal of Robotics Research 32.11 (2013): 1231-1237.
