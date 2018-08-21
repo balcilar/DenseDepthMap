@@ -88,7 +88,7 @@ dmap=round(dmap);
 
 
 figure;sc= colormap('jet');
-DisparityImage = 0.5*tmp + 0.5*reshape(sc(dmap+1,:), [n,m ,3]);
-imshow((DisparityImage));title('Inverse of Depth');
+DImage = 0.5*tmp + 0.5*reshape(sc(dmap+1,:), [n,m ,3]);
+imshow((DImage));title('Inverse of Depth');
 
 
